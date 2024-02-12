@@ -1,14 +1,22 @@
 package com.bancodigital.api.banco.digital.model;
 
 
+import jakarta.persistence.*;
+
+
 import java.util.Date;
 
+@Entity
+@Table(name = "cliente")
 public class Cliente {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String cpf;
     private String nome;
     private Date dataNascimento;
     private String endereco;
+    @Enumerated(EnumType.STRING)
     private Categoria categoria;
 
     public String getCpf() {
